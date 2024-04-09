@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Empréstimos</title>
+    <style>
+        .outuput{
+            font-weight: bold;
+        }
+
+        #payment{
+            text-decoration: underline;
+        }
+
+        #graph{
+            border: solid black 1px;
+        }
+
+        th, td {
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calculadora Financeira de Juros</h1>
+    </header>
+    <main>
+        <table>
+            <tr><th><h4>Insira os dados do empréstimo:</h4></th>
+            <td></td>
+            <th>Saldo do empréstimo, patrimônio líquido acumulado e pagamentos de juros</th>
+            </tr>
+            <tr>
+                <td>Valor do empréstimo R$: </td>
+                <td><input id="amount" onchange="calculate();"></td>
+                <td rowspan=8>
+                    <canvas id="graph" width="600" height="250"></canvas>
+                </td>
+            </tr>
+            <tr>
+                <td>Juros anual (%):</td>
+                <td><input id="apr" onchange="calculate();"></td>
+            </tr>
+            <tr>
+                <td>Prazo pagamento (anos):</td>
+                <td><input id="years" onchange="calculate();"></td>
+                <tr>
+                    <td>CEP (para encontrar credores):</td>
+                    <td><input id="zipcode" onchange="calculate();"></td>
+                    <tr>
+                        <th>Pagamentos Aproximados:</th>
+                        <td><button onclick="calculate();">Calcular</button></td>
+                    </tr>
+                    <tr>
+                        <td>Pagamento mensal:</td>
+                        <td>R$<span class="output" id="payment"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Pagamento total:</td>
+                        <td>R$<span class="output" id="total"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Juros totais:</td>
+                        <td>R$<span class="output" id="totalinterest"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Patrocinadores:</th><td colspan=2>
+                            Solicite seu empréstimo com um desses bons credores:
+                            <div id="lenders"></div>
+                        </td>
+                    </tr>
+                </tr>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <p>Desenvolvido por Geovane Querino Valentim</p>
+    </footer>
+</body>
+</html>
